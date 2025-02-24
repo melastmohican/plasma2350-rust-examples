@@ -6,9 +6,9 @@
 #![no_main]
 
 use defmt_rtt as _;
+use libm;
 use panic_halt as _;
 use rp235x_hal::{self as hal, block::ImageDef, entry, pio::PIOExt, Clock};
-use libm;
 use smart_leds::{brightness, SmartLedsWrite, RGB8};
 use ws2812_pio::rp235x::Ws2812;
 
@@ -48,11 +48,10 @@ fn main() -> ! {
         sio.gpio_bank0,
         &mut pac.RESETS,
     );
-    
 
-    let mut frame_delay = cortex_m::delay::Delay::new(core.SYST, clocks.system_clock.freq().to_Hz());
+    let mut frame_delay =
+        cortex_m::delay::Delay::new(core.SYST, clocks.system_clock.freq().to_Hz());
     let sin = libm::sinf;
-
 
     let timer = hal::Timer::new_timer0(pac.TIMER0, &mut pac.RESETS, &clocks);
 

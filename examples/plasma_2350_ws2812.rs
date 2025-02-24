@@ -1,7 +1,6 @@
 //! # Pimoroni Plasma 2350 WS2812 RGB LED Example
-//! 
+//!
 //! //! Derived from the [ppimoroni_plasma_2040_ws2812_led.rs](https://github.com/rp-rs/rp-hal-boards/blob/main/boards/pimoroni-plasma-2040/examples/pimoroni_plasma_2040_ws2812_led.rs) example for the Pimoroni Plasma 2040.
-
 
 #![no_std]
 #![no_main]
@@ -10,7 +9,6 @@
 // be linked)
 use panic_halt as _;
 use rp235x_hal::{self as hal, block::ImageDef, entry, pio::PIOExt, Clock};
-
 
 // Import useful traits to handle the ws2812 LEDs:
 use smart_leds::{brightness, SmartLedsWrite, RGB8};
